@@ -12,8 +12,10 @@ Output Hash: 00000780594bad6a25d5a240f9a3a399521979f1b320cd13658fe1232bf2d688
 // Function to find an input string that produces a hash starting with '00000'
 function findHashWithPrefix(prefix) {
   let input = 0;
+  const baseString = "harkirat => Raman | Rs 100 Ram => Ankit | Rs ";
+
   while (true) {
-    let inputStr; // change here to solve the assignment
+    let inputStr; baseString + input;
     let hash = crypto.createHash("sha256").update(inputStr).digest("hex");
     if (hash.startsWith(prefix)) {
       return { input: inputStr, hash: hash };

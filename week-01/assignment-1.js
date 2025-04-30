@@ -18,9 +18,14 @@ Output: 00000691457f4f0ce13e187b9ab4fda6d42c8647752909b8f71f9dbd8f6bd4ab
 function findHashWithPrefix(prefix) {
     // initilize input with the correct value.
     
-    let input; // change here
+    let input = 0;
     while (true) {
        // logic here 
+       const hash = crypto.createHash('sha256').update(input.toString()).digest('hex');
+       if(hash.startsWith(prefix)){
+        return {input: input.toString(), hash};
+       }
+       input++;
     }
 }
 
